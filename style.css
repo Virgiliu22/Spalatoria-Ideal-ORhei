@@ -1,0 +1,1413 @@
+/* ==========================
+// GLOBAL (comun tuturor paginilor)
+========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Previne scroll-ul orizontal */
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 0px;
+}
+
+/* ==========================
+// GENERIC ELEMENTS & UTILITIES
+========================== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #38a169;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2f855a;
+}
+
+.section-title {
+    font-size: 3.5rem; /* Slightly larger for impact */
+    font-weight: bold;
+    color: #2c7a7b; /* Changed to match theme, less dark */
+    text-align: center;
+    margin-bottom: 25px;
+    padding-top: 40px; /* Added padding to top of section title */
+}
+
+.section-description {
+    font-size: 1.3rem; /* Slightly smaller for better readability */
+    line-height: 1.5;
+    color: #666; /* Softer color */
+    text-align: center;
+    margin-bottom: 50px; /* More space below description */
+    max-width: 900px; /* Reduced max-width for better text flow */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==========================
+// BUTTONS
+========================== */
+.btn-primary,
+.btn-secondary {
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    text-align: center; /* Ensures text is centered for full-width buttons on mobile */
+}
+
+.btn-primary {
+    background-color: #16c172;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0fa55d;
+    transform: scale(1.05);
+}
+
+/* Base styles for all secondary buttons */
+.btn-secondary {
+    background: transparent;
+    color: #16c172;
+    border: 2px solid #16c172;
+}
+
+.btn-secondary:hover {
+    background: #16c172;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Specific override for secondary buttons within the HERO section */
+.hero-buttons .btn-secondary { /* More specific selector */
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 16px 32px; /* Slightly different padding */
+    font-size: 1.1rem;
+}
+
+.hero-buttons .btn-secondary:hover { /* More specific selector */
+    background-color: #fff;
+    color: #119e5e;
+}
+
+/* ==========================
+// HERO SECTION
+========================== */
+.hero {
+    background: #86a6a9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    padding: 80px 5vw; /* Padding ajustat pentru spațiu generos */
+}
+
+.hero-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    text-align: left;
+    max-width: 900px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image img {
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.hero-desc {
+    font-size: 1.25rem;
+    color: #e0e0e0;
+    margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* ==========================
+// TEXT CONTAINERS
+========================== */
+.text-container,
+.welcome-container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 800px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.4;
+}
+
+.text-container { /* Specific styles for .text-container */
+    padding: 60px 30px;
+    background: #f9f9f9;
+    color: #2c7a7b;
+}
+
+.text-container h2,
+.welcome-container h2 {
+    font-size: 2rem;
+    color: white; /* Default for .welcome-container h2 */
+    margin-bottom: 10px;
+}
+
+.text-container h2 { /* Specific for .text-container h2 */
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #2c7a7b;
+}
+
+.text-container p,
+.welcome-container .intro-text,
+.welcome-container .features p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: white; /* Default for .welcome-container text */
+}
+
+.text-container p { /* Specific for .text-container p */
+    font-size: 1.2rem;
+    margin: 8px 0;
+    color: #2c7a7b;
+}
+
+/* ==========================
+// SERVICES SECTION
+========================== */
+.servicii {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 60px 30px;
+    background: #f9f9f9; /* Moved from original .servicii rule */
+}
+
+/* Base styles for service items within .servicii */
+.servicii div {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color: #222;
+}
+
+.serviciu {
+    background: #f5f5f5;
+    padding: 25px 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.3);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    color: #222;
+}
+
+.serviciu:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.serviciu img {
+    width: 60px;
+    margin-bottom: 15px;
+}
+
+.serviciu h3 {
+    color: #2c7a7b;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.serviciu p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Service Grid (different layout) */
+.servicii-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.serviciu-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.serviciu-card:hover {
+    transform: scale(1.02);
+}
+
+.serviciu-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.serviciu-card h3 {
+    font-size: 20px;
+    margin: 16px;
+    color: #2c3e50;
+}
+
+.serviciu-card p {
+    font-size: 14px;
+    margin: 0 16px 12px;
+    color: #555;
+}
+
+/* Specific styles for service boxes (from a separate section) */
+.titlu-servicii {
+    text-align: center;
+    font-size: 32px;
+    color: #005b96;
+    margin-bottom: 40px;
+}
+
+.grid-servicii {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.serviciu-box {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 91, 150, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.serviciu-box:hover {
+    transform: translateY(-5px);
+}
+
+.serviciu-box img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 15px;
+}
+
+.serviciu-box p {
+    color: #005b96;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Detailed Services section */
+#servicii {
+    flex: 1;
+    max-width: 800px;
+    margin: 20px auto 40px;
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.8;
+    color: white;
+}
+
+#servicii h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#servicii ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#servicii ul li {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* ==========================
+// GALLERY SECTION
+========================== */
+#galerie {
+    padding-top: 80px; /* Add padding to prevent content from being hidden under fixed navbar */
+    padding-bottom: 100px; /* Space for the fixed footer */
+    background-color: #f0f8ff; /* Light background for the gallery section */
+}
+
+/* The .gallery rule was hidden/simplified in your original code; keeping it hidden for clarity */
+.gallery {
+    display: none; /* Hide the old flex gallery if not used */
+}
+
+.gallery-category {
+    margin-bottom: 50px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-category h3 {
+    font-size: 2.2rem;
+    color: #2c7a7b;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.gallery-item {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 220px; /* Fixed height for consistent look */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    border-bottom: 1px solid #eee;
+    border-radius: 12px 12px 0 0;
+}
+
+.image-caption {
+    font-size: 1.1rem;
+    color: #555;
+    padding: 15px 10px;
+    font-weight: 500;
+}
+
+.gallery-placeholder {
+    background-color: #f9f9f9;
+    border: 2px dashed #aed6f1;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px; /* Match height of actual images */
+    color: #aed6f1;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 20px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-placeholder:hover {
+    opacity: 1;
+}
+
+.gallery-placeholder span {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* ==========================
+// FOOTER
+========================== */
+footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 99%; /* Adjusted for slight margin */
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+    font-size: 14px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.footer-icons {
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.footer-icons a img {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.2s ease;
+    filter: brightness(0) invert(1); /* Consolidated filter here */
+}
+
+.footer-icons a:hover img {
+    transform: scale(1.2);
+}
+
+/* ==========================
+// ABOUT SECTION (#despre)
+========================== */
+#despre {
+    flex: 1;
+    padding: 20px;
+    margin: 20px auto 40px;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: white;
+}
+
+#despre h2, #despre h3 {
+    color: white;
+}
+
+#despre p {
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+body.despre-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    height: 100vh;
+}
+
+/* ==========================
+// LOGO SECTION
+========================== */
+.logo-container {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #e0f7fa;
+    border-bottom: 3px solid #00acc1;
+}
+
+.logo-img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* ==========================
+// CONTACT SECTIONS
+========================== */
+#contact {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#contact h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffcc00;
+}
+
+#contact p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Modern Contact - Full Screen Layout */
+.contact-modern-flex {
+    display: flex;
+    min-height: 80vh;
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    background: #2c7a7b;
+    border-radius: 0;
+    box-shadow: none;
+    color: #fff;
+}
+
+.contact-map {
+    flex: 1 1 50%;
+    min-width: 350px;
+    max-width: 50vw;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    background: #fff;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border: none;
+}
+
+.contact-details h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #fff;
+    text-align: left;
+}
+
+.contact-info-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    margin-bottom: 12px;
+}
+
+/* This .contact-icon rule is for the .contact-info-box */
+.contact-info-box .contact-icon { /* Specificity for icon inside info box */
+    background: #fff;
+    color: #2c7a7b;
+    border-radius: 12px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin-top: 2px;
+    box-shadow: 0 2px 8px rgba(44,122,123,0.09);
+}
+
+.contact-info-box h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.contact-info-box p {
+    margin: 0;
+    font-size: 1.08rem;
+    color: #e6f7f7;
+}
+
+.contact-link {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.contact-link:hover {
+    color: #16c172;
+}
+
+.contact-social-row {
+    display: flex;
+    gap: 22px;
+    margin-top: 18px;
+    align-items: center;
+}
+
+.contact-social-row img {
+    width: 44px;
+    height: 44px;
+    filter: brightness(0) invert(1);
+    transition: filter 0.2s;
+}
+
+.contact-social-row img:hover {
+    filter: brightness(0.7) invert(1) sepia(1) hue-rotate(120deg) saturate(2);
+}
+
+/* Modern Contact Section (different layout) */
+.contact-modern {
+    max-width: 600px;
+    margin: 40px auto 32px auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 24px rgba(44,122,123,0.09);
+    padding: 32px 18px 24px 18px;
+    text-align: center;
+}
+
+.contact-modern h2 {
+    color: #2c7a7b;
+    margin-bottom: 18px;
+}
+
+.adresa-contact {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    color: #222;
+}
+
+.harta-contact {
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 16px rgba(44,122,123,0.10);
+}
+
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: #2c7a7b; /* Default for contact-btn */
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(44,122,123,0.09);
+}
+
+.contact-btn:hover {
+    background: #16c172; /* Default hover for contact-btn */
+}
+
+.contact-btn i {
+    font-size: 1.2em;
+}
+
+/* Specific colors for contact buttons */
+.tel-btn { background: #2c7a7b; }
+.email-btn { background: #3b7dd8; }
+.fb-btn { background: #1877f2; }
+.insta-btn { background: #e1306c; }
+.messenger-btn { background: #0084ff; }
+
+/* Specific hover colors for contact buttons */
+.contact-btn.tel-btn:hover { background: #16c172; }
+.contact-btn.email-btn:hover { background: #2563b7; }
+.contact-btn.fb-btn:hover { background: #1456a0; }
+.contact-btn.insta-btn:hover { background: #c2185b; }
+.contact-btn.messenger-btn:hover { background: #005bb5; }
+
+
+/* ==========================
+// TOP CONTACT BAR MODERN
+========================== */
+.top-contact-bar {
+    background: linear-gradient(-12deg, #ffd740 0%, #ffeb3b 100%);
+    padding: 18px 32px 10px 32px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #22313f;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.ideal-highlight {
+    font-family: 'Fredoka', Arial, sans-serif;
+    font-size: 2.6rem;
+    color: #d400ff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-right: 7px;
+    vertical-align: middle;
+}
+
+.contact-slogan {
+    font-size: 1.1rem;
+    color: #22313f;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    margin-left: 2px;
+    margin-bottom: 0;
+}
+
+.contact-slogan b {
+    color: #d400ff;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.contact-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 0px; /* Reduced padding for the container itself */
+}
+
+/* This .contact-icon rule is for the .top-contact-bar */
+.top-contact-bar .contact-icon { /* Specificity for icon in top-contact-bar */
+    font-size: 2em;
+    color: #e91e63;
+}
+
+/* The .contact-details rule within top-contact-bar */
+.top-contact-bar .contact-details { /* Specificity for contact details in top bar */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px; /* Added internal padding */
+}
+
+.contact-details .program {
+    font-size: 1em;
+    color: #607d8b;
+    line-height: 1.2;
+    white-space: pre-line;
+}
+
+.contact-details .phone-number {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #22313f;
+    margin-top: 2px;
+    letter-spacing: 1px;
+}
+
+/* Contact Details Modern Wide */
+.detalii-contact-modern-wide {
+    background-color: #0f2b33; /* Dark background from the image */
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px 20px;
+    gap: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Adjusted font-family */
+}
+
+.dcw-col {
+    flex: 1 1 300px;
+    min-width: 260px;
+}
+
+.dcw-col h3 {
+    font-size: 1.2em; /* Slightly larger for headings */
+    margin-bottom: 20px; /* More space below headings */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #f3f3f3; /* Lighter white for headings */
+    font-weight: 600; /* Bolder headings */
+}
+
+.dcw-item {
+    display: flex;
+    gap: 15px; /* Increased gap for better spacing */
+    margin-bottom: 15px;
+    align-items: flex-start; /* Align icon and text to the top */
+}
+
+.dcw-item i {
+    color: #16c172; /* Green color for icons, matching your button primary color */
+    font-size: 24px; /* Larger icons */
+    margin-top: 2px; /* Slight adjustment for vertical alignment */
+}
+
+.dcw-item div {
+    line-height: 1.5; /* Improve line spacing for address */
+}
+
+.dcw-item span {
+    font-weight: 600; /* Bold "Contact" and "Adresă" */
+    color: #eee; /* Slightly off-white for labels */
+    font-size: 0.95em;
+}
+
+.dcw-item a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em; /* Slightly larger phone number */
+    font-weight: 500;
+}
+
+.dcw-item a:hover {
+    text-decoration: underline;
+    color: #16c172; /* Hover color for links */
+}
+
+.dcw-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dcw-col ul li {
+    margin-bottom: 10px;
+    font-size: 1.05em; /* Slightly larger font for list items */
+    color: #ccc; /* Default color for list items */
+}
+
+.dcw-col ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.dcw-col ul li a:hover {
+    text-decoration: underline;
+    color: #16c172; /* Hover color for list item links */
+}
+
+.dcw-social {
+    margin-top: 25px; /* More space above social icons */
+    display: flex;
+    gap: 20px; /* Increased gap between social icons */
+}
+
+.dcw-social a {
+    color: #fff;
+    font-size: 24px; /* Larger social icons */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.dcw-social a:hover {
+    color: #16c172; /* Green hover color for social icons */
+    transform: translateY(-3px); /* Slight lift on hover */
+}
+
+.dcw-logos { /* As requested, this section is hidden */
+    display: none;
+}
+
+/* ==========================
+// NAVBAR
+========================== */
+.nav-wrapper {
+    background-color: white;
+    width: 100%;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.nav-wrapper.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 70px;
+    background-color: white;
+}
+
+.nav-logo .clean {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d400ff;
+    font-family: 'Oswald', Arial, sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #22313f;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+    font-family: 'Oswald', Arial, sans-serif;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: #e0f7fa;
+    color: #16c172;
+}
+
+/* Burger menu icon */
+.burger-menu {
+    display: none; /* Hidden by default on desktop */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #22313f;
+}
+
+/* Mobile menu */
+.mobile-menu {
+    display: none; /* Hidden by default */
+    background-color: white;
+    position: absolute;
+    top: 70px; /* Below the navbar */
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 998;
+    overflow: hidden;
+    max-height: 0; /* For smooth transition */
+    transition: max-height 0.3s ease-out;
+}
+
+.mobile-menu.active {
+    display: block;
+    max-height: 300px; /* Adjust as needed for your menu height */
+}
+
+.mobile-nav-links {
+    list-style: none;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.mobile-nav-links li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-nav-links li:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-links a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #22313f;
+    display: block;
+    padding: 8px 0;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a.active {
+    color: #16c172;
+}
+
+/* ==========================
+// RESPONSIVE STYLES
+========================== */
+@media (max-width: 900px) {
+    .hero {
+        padding: 60px 5vw; /* Ajustăm padding-ul și pe ecrane medii */
+    }
+
+    .hero-flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .hero-content, .hero-image {
+        width: 100%;
+        text-align: center; /* Centrare text pe mobil */
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Dimensiune mai mică pentru h1 pe tablete */
+    }
+
+    .hero-desc {
+        font-size: 1.15rem; /* Dimensiune mai mică pentru descriere pe tablete */
+    }
+
+    .serviciu {
+        width: 90%;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for tablets */
+    }
+
+    .gallery-item img {
+        height: 200px; /* Adjust image height for tablets */
+    }
+
+    .top-contact-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        padding: 10px 20px;
+    }
+
+    .contact-right {
+        margin-top: 10px;
+    }
+
+    .top-contact-bar .contact-details { /* Specific to avoid conflicts */
+        align-items: flex-start;
+    }
+
+    .contact-modern-flex {
+        flex-direction: column;
+        min-height: unset;
+    }
+    .contact-map, .contact-details {
+        max-width: 100vw;
+        min-width: 0;
+        padding: 24px 4vw;
+        height: 320px;
+    }
+    .contact-map iframe {
+        min-height: 220px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 50px 4vw; /* Și mai puțin padding pe ecrane mici */
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Dimensiune și mai mică pentru h1 */
+    }
+
+    .hero-desc {
+        font-size: 1.05rem; /* Dimensiune și mai mică pentru descriere */
+    }
+
+    .hero-buttons {
+        flex-direction: column; /* Butoanele se așează vertical pe ecrane mici */
+        gap: 15px;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%; /* Butoanele ocupă toată lățimea */
+        text-align: center;
+        padding: 12px 0; /* Padding ajustat */
+        font-size: 1rem; /* Dimensiune font ajustată */
+    }
+
+    .nav-links {
+        display: none; /* Hide traditional nav links on smaller screens */
+    }
+
+    .burger-menu {
+        display: block; /* Show burger menu icon */
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust grid for smaller screens */
+        gap: 20px;
+    }
+
+    .gallery-item img {
+        height: 180px; /* Adjust image height */
+    }
+    .section-title {
+        font-size: 2.8rem;
+    }
+    .section-description {
+        font-size: 1.1rem;
+    }
+
+    .detalii-contact-modern-wide {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 15px;
+    }
+
+    .dcw-col {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .dcw-col:last-child {
+        margin-bottom: 0;
+    }
+
+    .dcw-item {
+        justify-content: center;
+    }
+
+    .dcw-social {
+        justify-content: center;
+    }
+}
+
+/* ==========================
+// Responsive Improvements for Phones (max-width: 480px)
+========================== */
+@media (max-width: 480px) {
+    /* HERO */
+    .hero {
+        padding: 40px 3vw; /* Minimal padding on phones */
+    }
+
+    .hero-flex {
+        flex-direction: column; /* Force column layout on small screens */
+        align-items: center;
+        gap: 20px;
+        overflow-x: hidden !important; /* Ensure no horizontal scroll on hero */
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+        padding: 0; /* Remove horizontal padding here, handled by hero-flex */
+    }
+
+    .hero h1 {
+        font-size: 1.8rem; /* Final size for h1 on phones */
+        line-height: 1.2;
+    }
+
+    .hero-desc {
+        font-size: 0.95rem; /* Final size for description on phones */
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        padding: 14px 0;
+        font-size: 1.1rem;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    /* NAVBAR */
+    .main-nav {
+        padding: 0 15px; /* Adjust padding for smaller screens */
+        height: 60px; /* Slightly smaller navbar height */
+    }
+
+    .nav-logo .clean {
+        font-size: 1.8rem; /* Smaller logo */
+    }
+
+    /* SERVICES */
+    .servicii {
+        flex-direction: column;
+        padding: 40px 15px;
+    }
+
+    .serviciu {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 25px;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 15px;
+    }
+
+    .gallery-item {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .gallery-item img {
+        height: 200px; /* Maintain height, object-fit will handle scaling */
+    }
+    
+    .gallery-placeholder {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+    .section-description {
+        font-size: 1rem;
+    }
+
+    /* FOOTER */
+    footer.footer-icons {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px 10px;
+    }
+
+    footer.footer-icons a img {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Remove the height: 2000px div, it's not needed with a proper footer */
+    div[style="height: 2000px;"] {
+        display: none;
+    }
+
+    /* Override specific mobile styles from your original CSS that cause issues */
+    /* Ensure hero-flex remains column on smaller phones for better readability */
+    .hero-flex {
+        flex-direction: column !important; /* Override if a previous rule made it row */
+        overflow-x: hidden !important; /* Ensure no horizontal scroll on hero */
+    }
+
+    /* Ensure hero-content and hero-image take full width in column layout */
+    .hero-content, .hero-image {
+        flex: 0 0 auto !important; /* Reset flex-basis */
+        max-width: 100% !important; /* Ensure full width */
+        text-align: center !important; /* Center text */
+    }
+
+    /* Make sure buttons stack on small screens */
+    .hero-buttons {
+        flex-direction: column !important;
+    }
+
+    /* Ensure top-contact-bar always stacks vertically */
+    .top-contact-bar {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    /* Restore default nav-links behavior (hidden by default, shown by JS mobile menu) */
+    .nav-links {
+        display: none !important;
+    }
+
+    /* Ensure specific font sizes are applied */
+    .contact-title {
+        font-size: 1.4rem !important;
+    }
+    .ideal-highlight {
+        font-size: 2rem !important;
+    }
+    .contact-slogan {
+        font-size: 1rem !important;
+    }
+    .contact-details .program {
+        font-size: 1rem !important;
+    }
+    .contact-details .phone-number {
+        font-size: 1.3rem !important;
+    }
+
+    /* Re-center images in gallery and services */
+    .gallery img, .serviciu {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
