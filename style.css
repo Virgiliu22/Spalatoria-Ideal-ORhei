@@ -622,6 +622,7 @@ body.despre-page {
     border-radius: 0;
     box-shadow: none;
     color: #fff;
+    align-items: center;
 }
 
 .contact-map {
@@ -644,12 +645,17 @@ body.despre-page {
     border: none;
 }
 
+.contact-details {
+    padding-left: 80px;
+}
+
 .contact-details h2 {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 24px;
     color: #fff;
     text-align: left;
+    margin-top: 0;
 }
 
 .contact-info-box {
