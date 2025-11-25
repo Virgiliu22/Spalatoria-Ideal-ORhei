@@ -1487,3 +1487,128 @@ body.despre-page {
 @media (max-width:520px){
   .lb-prev, .lb-next{ display:none; }
 }
+
+.modal-serviciu {
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0; right: 0; bottom: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.modal-serviciu .modal-content {
+  background: #fff;
+  color: #222;
+  border-radius: 18px;
+  max-width: 420px;
+  width: 92vw;
+  padding: 36px 28px 28px 28px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  text-align: center;
+  position: relative;
+  animation: modalPop 0.18s cubic-bezier(.6,1.4,.6,1.01);
+}
+@keyframes modalPop {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.close-modal {
+  position: absolute;
+  top: 12px; right: 18px;
+  font-size: 2rem;
+  color: #2c7a7b;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.close-modal:hover { color: #16c172; }
+.modal-serviciu img {
+  display: block;
+  margin: 0 auto 18px auto;
+}
+
+/* ...existing code... */
+/* Enhanced price section */
+.preturi {
+  padding: 48px 20px;
+  background: linear-gradient(180deg, #f7fbfc 0%, #eef7f6 100%);
+  margin-top: 28px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(19,48,40,0.06);
+  color: #0f2b33;
+}
+.preturi-inner { max-width: 1200px; margin: 0 auto; }
+.preturi-header { text-align: center; margin-bottom: 18px; }
+.preturi-header h2 { font-size: 2.4rem; color:#0f4f4b; margin-bottom:6px; }
+.preturi-header .muted { color: #516d6a; font-size: 0.98rem; }
+
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Card look for each column */
+.price-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 22px rgba(15,43,51,0.06);
+  border: 1px solid rgba(15,43,51,0.04);
+}
+.price-card .card-title {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #0f5250;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+/* Table styles */
+.price-table { width:100%; border-collapse: collapse; font-size: 0.98rem; }
+.price-table thead th {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(90deg,#f1f9f8,#ffffff);
+  color: #0b4b48;
+  font-weight:700;
+  padding: 12px;
+  text-align:left;
+  border-bottom: 2px solid rgba(0,0,0,0.04);
+}
+.price-table td, .price-table th {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(15,43,51,0.04);
+}
+.price-table tbody tr:nth-child(odd) { background: rgba(15,43,51,0.02); }
+.price { text-align:right; font-weight:700; color:#0f5b59; }
+
+/* highlight special items */
+.price .special, .price-table tr td.price.special { color:#d35400; background: linear-gradient(90deg,#fff7ef,#fff9f2); border-radius:6px; padding:6px 10px; }
+
+/* Mobile: convert grid to single column and make table rows display as cards */
+@media (max-width: 920px) {
+  .price-grid { grid-template-columns: 1fr; }
+  .price-table thead { display: none; }
+  .price-table, .price-table tbody, .price-table tr, .price-table td { display: block; width: 100%; }
+  .price-table tr { margin-bottom: 12px; background: #fff; border-radius: 8px; padding: 12px; box-shadow: 0 6px 16px rgba(15,43,51,0.03); border: 1px solid rgba(15,43,51,0.03); }
+  .price-table td {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:8px 12px;
+    border-bottom: none;
+    font-size: 1rem;
+  }
+  .price-table td:first-child { color:#2a6a68; font-weight:600; max-width: 70%; }
+  .price-table td:last-child { color:#0f5b59; font-weight:700; }
+}
+@media (max-width:480px){
+  .preturi { padding: 28px 14px; }
+  .preturi-header h2 { font-size: 1.6rem; }
+}
