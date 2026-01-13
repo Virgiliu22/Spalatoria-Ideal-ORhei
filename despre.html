@@ -54,6 +54,8 @@
   </div>
 </section>
 
+<button id="Apsama">Apasama</button>
+
 <!-- SECȚIUNE HARTĂ GOOGLE MAPS -->
 <section id="locatie" style="max-width: 1600px; margin: 24px auto 40px auto; padding: 18px; text-align: center; border-radius: 22px; box-shadow: 0 0 28px rgba(0,0,0,0.15);">
   <h2 style="color:#2c7a7b; margin-bottom: 14px;">Unde ne găsești</h2>
@@ -108,7 +110,16 @@
     </ul>
   </div>
 </div>
-  <!-- FOOTER -->
+
+<script>
+const apsama = document.getElementById('Apsama');
+
+apsama.addEventListener('click', function() {
+    console.log('Butonul a fost apăsat!');
+  });
+</script>
+
+<!-- FOOTER -->
   <footer class="footer-icons">
     <a href="contact.html#contact-form" title="Contact prin email">
       <img src="img/mailIcon.png" alt="Mail" />
