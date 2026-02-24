@@ -64,8 +64,24 @@
         <img src="img/messengerIcon.png" alt="Messenger" />
       </a>
     </div>
+
+    <div class="contact-form-container">
+      <h2>Contactează-ne</h2>
+      <form id="contact-form">
+        <label for="nume">Nume:</label>
+        <input type="text" id="nume" name="nume" required />
+        <label for="prenume">Prenume:</label>
+        <input type="text" id="prenume" name="prenume" required />
+        <label for="telefon">Telefon:</label>
+        <input type="tel" id="telefon" name="telefon" required />
+        <label for="email">Email (Gmail):</label>
+        <input type="email" id="email" name="email" required />
+        <button type="submit">Trimite</button>
+      </form>
+    </div>
   </div>
 </section>
+
 <div class="detalii-contact-modern-wide">
   <div class="dcw-col">
     <h3>DETALII CONTACT</h3>
@@ -126,5 +142,32 @@
             <img src="img/TelefonIcon.png" alt="Telefon" />
         </a>
     </footer>
+
+<div id="notification" class="notification-overlay">
+    <div class="notification-box">
+        <p>Mulțumim! Vă vom contacta în curând.</p>
+        <button id="notification-ok">OK</button>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('contact-form');
+    var overlay = document.getElementById('notification');
+    var okBtn = document.getElementById('notification-ok');
+    if (!form || !overlay || !okBtn) {
+        console.error('Form or notification elements missing');
+        return;
+    }
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        overlay.style.display = 'flex';
+        form.reset();
+    });
+    okBtn.addEventListener('click', function() {
+        overlay.style.display = 'none';
+    });
+});
+</script>
 </body>
 </html>
