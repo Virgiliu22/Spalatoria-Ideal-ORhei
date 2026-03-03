@@ -1,6 +1,60 @@
-// ...new file...
+// ===== FORM DATA PERSISTENCE =====
+function setupFormPersistence(formId, fieldIds) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+
+  // Auto-fill from localStorage
+  const forms = JSON.parse(localStorage.getItem('formSubmissions')) || [];
+  const lastSubmission = forms.filter(f => f.formId === formId).pop();
+  
+  if (lastSubmission) {
+    fieldIds.forEach(fieldName => {
+      const input = document.getElementById(fieldName);
+      if (input && lastSubmission.data[fieldName]) {
+        input.value = lastSubmission.data[fieldName];
+      }
+    });
+  }
+
+  // Save on input
+  fieldIds.forEach(fieldId => {
+    const field = document.getElementById(fieldId);
+    if (field) {
+      field.addEventListener('input', function() {
+        const formData = {};
+        fieldIds.forEach(id => {
+          const input = document.getElementById(id);
+          if (input) formData[id] = input.value;
+        });
+        localStorage.setItem(`${formId}_draft`, JSON.stringify(formData));
+      });
+    }
+  });
+
+  // Save on submit
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = {};
+    fieldIds.forEach(fieldId => {
+      const field = document.getElementById(fieldId);
+      if (field) formData[fieldId] = field.value;
+    });
+    
+    const forms = JSON.parse(localStorage.getItem('formSubmissions')) || [];
+    forms.push({ id: Date.now(), formId, data: formData, submittedAt: new Date().toISOString() });
+    localStorage.setItem('formSubmissions', JSON.stringify(forms));
+    localStorage.removeItem(`${formId}_draft`);
+  });
+}
+
+// ===== LIGHTBOX FUNCTIONALITY =====
 document.addEventListener('DOMContentLoaded', function () {
+  // Setup form persistence
+  setupFormPersistence('contact-form', ['nume', 'prenume', 'telefon', 'email']);
+
   const lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+  
   const lbImage = lightbox.querySelector('.lb-image');
   const btnClose = lightbox.querySelector('.lb-close');
   const btnPrev = lightbox.querySelector('.lb-prev');

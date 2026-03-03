@@ -150,8 +150,11 @@
     </div>
 </div>
 
+<script src="app.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    setupFormPersistence('contact-form', ['nume', 'prenume', 'telefon', 'email']);
+    
     var form = document.getElementById('contact-form');
     var overlay = document.getElementById('notification');
     var okBtn = document.getElementById('notification-ok');
